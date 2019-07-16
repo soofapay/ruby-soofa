@@ -24,7 +24,7 @@ require 'soofapay'
 
 soofa = Soofa.new("your_till_number", 'your_client_secret')
 puts "soofa balance is:  ",soofa.get_balance.class
-exist = soofa.find("QTMB6")
+exist = soofa.find("transaction_id")
 if exist
   @trx = soofa.get_transaction
   puts @trx.tid
