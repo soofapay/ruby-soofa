@@ -23,7 +23,7 @@ class Soofa
                "X-TILL": @till_no}
     begin
       response = RestClient.get(@url, headers = headers)
-      data = JSON.parse(response).to_json
+      data = JSON.parse(response)
       _status = data["status"]
       if response.code == SUCCESSFUL
         @transaction = Transaction.new(data)
@@ -58,3 +58,6 @@ class Soofa
     end
   end
 end
+
+
+

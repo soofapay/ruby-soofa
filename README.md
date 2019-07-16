@@ -22,13 +22,17 @@ Or install it yourself as:
 ```ruby
 require 'soofapay'
 
-soofa = Soofa.new('your_till_number', 'your_client_secret')
-puts "soofa balance is:  ",soofa.get_balance
+soofa = Soofa.new("your_till_number", 'your_client_secret')
+puts "soofa balance is:  ",soofa.get_balance.class
 exist = soofa.find("QTMB6")
 if exist
   @trx = soofa.get_transaction
-  puts @trx.json
+  puts @trx.tid
+  puts @trx.gross_amount
+  puts @trx.as_json['reference']
+  puts @trx.as_string
 end
+
 ```
 The expected response for transaction check is  `Transaction` 
 object with various keys and methods
